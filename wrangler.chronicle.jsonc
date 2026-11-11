@@ -1,0 +1,24 @@
+{
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "mos-chronicle-proxy",
+    "main": "src/index.ts",
+    "compatibility_date": "2025-08-13",
+    "observability": {
+        "enabled": true
+    },
+    // Keep any variables edited in the Cloudflare dashboard on redeploy
+    "keep_vars": true,
+    "vars": {
+        // TODO: replace with the URL where the MOS Chronicle site is hosted (e.g. its Netlify URL)
+        "ORIGIN_URL": "https://REPLACE-WITH-CHRONICLE-ORIGIN.netlify.app",
+        "SURFACE_SLUG": "mos-chronicle-web",
+        "AUTHENTICATED_USER_JWT_COOKIE_NAME": "mos_jwt",
+        "ANONYMOUS_SESSION_COOKIE_NAME": "anon-session-id",
+        "INJECT_SCRIPT_URL": "https://assets.monetizationos.com/web-components-latest.js",
+        "MONETIZATION_OS_HOST": "https://api.monetizationos.com",
+        "MONETIZATION_OS_ENDPOINTS_PREFIX": "/mos-endpoints/",
+        "ORIGIN_REQUEST_HEADERS": {}
+    }
+    // MONETIZATION_OS_SECRET_KEY is a secret, set it with:
+    // npx wrangler secret put MONETIZATION_OS_SECRET_KEY -c wrangler.chronicle.jsonc
+}
